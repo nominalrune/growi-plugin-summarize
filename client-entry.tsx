@@ -1,4 +1,5 @@
 import config from './package.json';
+import { Summary } from './src/components/Summary';
 import { helloGROWI } from './src/Hello';
 import { Options, Func, ViewOptions } from './types/utils';
 
@@ -20,8 +21,8 @@ const activate = (): void => {
 
   optionsGenerators.customGenerateViewOptions = (...args) => {
     const options = optionsGenerators.generateViewOptions(...args);
-    const { a } = options.components;
-    options.components.a = helloGROWI(a); // Wrap the default component
+    const { summary } = options.components;
+    options.components.summary = Summary(summary); // Wrap the default component
     return options;
   };
 };
