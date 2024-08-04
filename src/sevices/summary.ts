@@ -39,7 +39,7 @@ function rewriteNode(node: Node) {
 }
 
 
-export const remarkPlugin: Plugin = function () {
+export const remarkSummaryPlugin: Plugin = function () {
   return (tree) => {
     visit(tree, (node) => {
       if (node.type === 'list') { //@see https://github.com/syntax-tree/mdast#list

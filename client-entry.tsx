@@ -1,6 +1,6 @@
 import config from './package.json';
 import { Summary } from './src/components/Summary';
-import { helloGROWI } from './src/Hello';
+import { remarkSummaryPlugin } from './src/sevices/summary';
 import { Options, Func, ViewOptions } from './types/utils';
 
 declare const growiFacade : {
@@ -21,8 +21,8 @@ const activate = (): void => {
 
   optionsGenerators.customGenerateViewOptions = (...args) => {
     const options = optionsGenerators.generateViewOptions(...args);
-    const { summary } = options.components;
-    options.components.summary = Summary(summary); // Wrap the default component
+    options.components.summary = Summary(options.components.summary); // Wrap the default component
+    options.remarkPlugins.push(remarkSummaryPlugin);
     return options;
   };
 };
