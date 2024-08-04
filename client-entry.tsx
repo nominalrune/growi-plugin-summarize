@@ -23,6 +23,7 @@ const activate = (): void => {
     const options = optionsGenerators.generateViewOptions(...args);
     options.components.summary = Summary(options.components.summary); // Wrap the default component
     options.remarkPlugins.push(remarkSummaryPlugin);
+    console.log(options);
     return options;
   };
 };
