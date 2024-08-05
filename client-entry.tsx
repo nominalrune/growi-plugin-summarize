@@ -21,8 +21,10 @@ const activate = (): void => {
 
   optionsGenerators.customGenerateViewOptions = (...args) => {
     const options = optionsGenerators.generateViewOptions(...args);
+    //@ts-expect-error
     options.components.summary = Summary(options.components.summary); // Wrap the default component
-    options.remarkPlugins.push(remarkSummaryPlugin);
+    //@ts-expect-error
+    options.remarkPlugins.push([remarkSummaryPlugin]);
     console.log(options);
     return options;
   };
